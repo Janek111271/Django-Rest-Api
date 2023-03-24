@@ -20,5 +20,6 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/schema/', SpectacularAPIView.as_view(), name='api_schema'),
-    path('api/docs/', SpectacularSwaggerView.as_view(url_name='api_schema'),name='api-docs')
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='api_schema'),
+         name='api-docs')
 ]
