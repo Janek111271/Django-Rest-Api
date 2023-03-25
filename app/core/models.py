@@ -39,6 +39,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
 
 
+class Address(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    street = models.CharField(max_length=255)
+    house_number = models.CharField(max_length=20)
+    city = models.CharField(max_length=255)
+    post_code = models.CharField(max_length=6)
+
+
 class Recipe(models.Model):
 
     user = models.ForeignKey(

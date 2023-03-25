@@ -1,13 +1,23 @@
 from django.contrib.auth import get_user_model, authenticate
 from django.utils.translation import gettext as translate
 from rest_framework import serializers
+from core.models import Address
+
+
+class AddressSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Address
+        fields = ['id', 'street', 'house_number', 'city', 'post_code']
+        read_only_fields = ['id']
 
 
 class UserSerializer(serializers.ModelSerializer):
+    address = AddressSerializer(many=True, required=False)
 
     class Meta:
         model = get_user_model()
-        fields = ['email', 'password', 'name']
+        fields = ['email', 'password', 'name', 'address']
         extra = {'password': {'write_only': True, 'min_length': 5}}
 
     def create(self, validated_data):
