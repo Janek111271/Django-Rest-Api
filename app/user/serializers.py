@@ -1,5 +1,4 @@
 from django.contrib.auth import get_user_model, authenticate
-from django.utils.translation import gettext as translate
 from rest_framework import serializers
 from core.models import Address
 
@@ -51,7 +50,7 @@ class AuthTokenSerializer(serializers.Serializer):
             password=password,
         )
         if not user:
-            msg = translate('Unable to authenticate')
+            msg = 'Unable to authenticate'
             raise serializers.ValidationError(msg, code='authorization')
 
         attrs['user'] = user
