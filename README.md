@@ -1,5 +1,4 @@
-# bitbybit_zadanie
-Repozytorium stworzone na potrzeby zadania rekrutacyjnego do firmy BitByBit
+# Django REST API
 
 Aplikację należy włączyć poprzez wydanie komendy: "docker-compose run" i wejść na adres "localhost:8000/api/docs/"
 
